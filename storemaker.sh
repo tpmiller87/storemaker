@@ -13,7 +13,7 @@ openssl pkcs12 -export -in fullchain*.pem -inkey privkey*.pem -out $domain.p12 -
 keytool -importkeystore -deststorepass $pass -destkeypass $pass -destkeystore $domain.store -srckeystore $domain.p12 -srcstoretype PKCS12 -srcstorepass $pass -alias $domain
 
 keystore=$(ls *.store)
-keystorepath=$(find / -name $keystore -print -quit 2>/dev/null)
+keystorepath=$(find . -name $keystore -print -quit 2>/dev/null)
 
 echo $'\n'"The password generated is $pass"
 echo "Insert the below text into your malleable profile of choice:"$'\n'
